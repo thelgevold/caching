@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"ibazel run //backend\" \"ibazel run //apps/car-list/src:devserver\"",
+    "start": "bazel build //backend --verbose_failures && bazel build //apps/car-list/src:devserver",
     "build": "ng build",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx lint && ng lint",
@@ -19,7 +19,11 @@
     "update:check": "./node_modules/.bin/nx update check",
     "update:skip": "./node_modules/.bin/nx update skip",
     "postinstall": "ngc -p ngc.tsconfig.json",
-    "workspace-schematic": "./node_modules/.bin/nx workspace-schematic"
+    "workspace-schematic": "./node_modules/.bin/nx workspace-schematic",
+    "clear-web-container": "docker stop web && docker rm web",
+    "clear-web-image": "docker rmi nx-bazel-example_web",
+    "clear-docker": "npm run clear-web-container && npm run clear-web-image",
+    "start-docker": "docker-compose up"
   },
   "private": true,
   "dependencies": {

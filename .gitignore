@@ -47,4 +47,5 @@ testem.log
 Thumbs.db
 
 bazel-out
+bazel-cache
 yarn-error.log
