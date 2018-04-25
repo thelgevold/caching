@@ -1,5 +1,3 @@
-Welcome to the Bazel Nx Workshop.
-
 # Start Remote Caching Instance
 Terminal 1: npm run start-docker
 
