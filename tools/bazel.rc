@@ -18,11 +18,8 @@ build:ci --local_resources=3072,2.0,1.0
 
 build:ci --noshow_progress
 
-build --repository_cache=bazel-cache/
-test --repository_cache=bazel-cache/
-run --repository_cache=bazel-cache/
+build --experimental_remote_spawn_cache
+build --remote_http_cache=http://localhost:9999/cache
 
-#build --spawn_strategy=remote --genrule_strategy=remote
-#build --strategy=Javac=remote --strategy=Closure=remote
-#build --remote_http_cache=http://localhost:8080/cache
-#build --remote_upload_local_results=false
+run --experimental_remote_spawn_cache
+run --remote_http_cache=http://localhost:9999/cache
